@@ -46,7 +46,7 @@ public class FetchEdqmJson {
 					+ " Use without the knowledge of both the developer and NCI/NIH violates EDQM, and the MIT License.";
 			
 			//roll your own
-			String secret = "*******";
+			String secret = "********";
 			Vector<String> codes = new Vector<String>();
 			
 			//TODO: Make the call to get all codes
@@ -116,7 +116,8 @@ public class FetchEdqmJson {
 					pw.print(responseString);
 					pw.flush();
 				}
-
+				
+				System.out.println(codes.elementAt(i) + " fetched.");
 				// Don't stress them
 				Thread.sleep(2000);
 			}
@@ -141,11 +142,17 @@ public class FetchEdqmJson {
 				}
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
+				System.out.println("Please remove or rename your last EDQM.json");				
 				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
+				System.out.println("Please remove or rename your last EDQM.json");
 				e.printStackTrace();
 			}
+		}
+		else {
+			System.out.println("Please remove or rename your last EDQM.json");
+			System.exit(0);
 		}
 	}	
 	
